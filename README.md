@@ -28,11 +28,18 @@ This is an [MCP (Model Context Protocol)](https://github.com/modelcontextprotoco
 
 ### Adding Signer MCP Server to your MCP Client
 
+Since this server is designed to work **in tandem with** the `adamik-mcp-server`, here are examples showing both servers configured together:
+
 #### YAML (FastAgent Config File)
 
 ```yaml
 mcp:
   servers:
+    adamik:
+      command: "npx"
+      args: ["@adamik/api-mcp-server"]
+      env:
+        ADAMIK_API_KEY: "<your-adamik-api-key>"
     signer:
       command: "node"
       args: ["path/to/signer-mcp-server/build/index.js"]
@@ -43,6 +50,13 @@ mcp:
 ```json
 {
   "mcpServers": {
+    "adamik": {
+      "command": "npx",
+      "args": ["@adamik/api-mcp-server"],
+      "env": {
+        "ADAMIK_API_KEY": "<your-adamik-api-key>"
+      }
+    },
     "signer": {
       "command": "node",
       "args": ["path/to/signer-mcp-server/build/index.js"]
@@ -50,6 +64,8 @@ mcp:
   }
 }
 ```
+
+**Note**: Replace `<your-adamik-api-key>` with your actual Adamik API key and adjust the path to your local signer-mcp-server build directory.
 
 ### Local Installation
 
