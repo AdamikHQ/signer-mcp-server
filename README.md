@@ -14,21 +14,85 @@ This is an [MCP (Model Context Protocol)](https://github.com/modelcontextprotoco
 
 ---
 
+## Prerequisites
+
+- Node.js (v20 or higher)
+- pnpm
+- Git
+- Claude Desktop installed (https://claude.ai/download)
+- Claude Pro subscription required
+
+---
+
+## Installation
+
+### Adding Signer MCP Server to your MCP Client
+
+#### YAML (FastAgent Config File)
+
+```yaml
+mcp:
+  servers:
+    signer:
+      command: "node"
+      args: ["path/to/signer-mcp-server/build/index.js"]
+```
+
+#### JSON (Claude Desktop / NextChat)
+
+```json
+{
+  "mcpServers": {
+    "signer": {
+      "command": "node",
+      "args": ["path/to/signer-mcp-server/build/index.js"]
+    }
+  }
+}
+```
+
+### Local Installation
+
+#### 1. Clone Repository
+
+```bash
+git clone https://github.com/your-username/signer-mcp-server.git
+cd signer-mcp-server
+```
+
+#### 2. Install dependencies and build
+
+```bash
+pnpm install
+pnpm run build
+```
+
+#### 3. Configure your client
+
+Add the server to your MCP client configuration using the paths shown above. The built server will be available at `build/index.js`.
+
+---
+
 ## 📦 Tools
 
 ### `readMeFirst`
+
 > Provides critical guidance on how to safely use this MCP server.
 
 ### `getWalletStatus`
+
 > Check if a wallet is currently connected.
 
 ### `getAvailableWalletSigners`
+
 > Lists all supported signer types available for wallet connection.
 
 ### `connectWallet`
+
 > Connect a wallet with the specified `signerType`. Only one wallet can be connected per session.
 
 **Input:**
+
 ```json
 {
   "signerType": "string"
@@ -56,6 +120,7 @@ This is an [MCP (Model Context Protocol)](https://github.com/modelcontextprotoco
 > Signs an encoded payload. Use only after confirming user consent.
 
 **Input:**
+
 ```json
 {
   "payload": "string",
