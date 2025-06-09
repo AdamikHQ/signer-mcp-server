@@ -1,8 +1,11 @@
 {
-  "name": "signer-mcp-server",
-  "version": "1.0.0",
+  "name": "@adamik/signer-mcp-server",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "@adamik/mcp-server": "./build/index.js"
+  },
   "dependencies": {
     "@cosmjs/crypto": "^0.33.1",
     "@dfns/sdk": "^0.6.12",
@@ -24,6 +27,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.10.0",
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepublishOnly": "npm run build"
   }
 }
