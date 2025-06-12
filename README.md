@@ -213,20 +213,7 @@ pnpm install
 pnpm run build
 ```
 
-### 3. Configure Environment
-
-Create a `.env` file with your chosen provider's environment variables:
-
-```env
-# Example for Turnkey
-TURNKEY_BASE_URL=https://api.turnkey.com
-TURNKEY_API_PUBLIC_KEY=your-public-key
-TURNKEY_API_PRIVATE_KEY=your-private-key
-TURNKEY_ORGANIZATION_ID=your-org-id
-TURNKEY_WALLET_ID=your-wallet-id
-```
-
-### 4. Configure Your MCP Client
+### 3. Configure Your MCP Client
 
 Update your client configuration to point to the local installation instead of using `npx`.
 
