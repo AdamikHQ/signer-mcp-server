@@ -76,7 +76,7 @@ Choose **one** of the following providers and add their environment variables to
 ### Local Seed (For Testing Only)
 
 ```env
-UNSECURE_LOCAL_SEED="your 24 word BIP39 mnemonic phrase here"
+SEED_PHRASE="your 24 word BIP39 mnemonic phrase here"
 ```
 
 ⚠️ **Warning:** Only use for testing. Not secure for production.
@@ -90,7 +90,7 @@ UNSECURE_LOCAL_SEED="your 24 word BIP39 mnemonic phrase here"
       "command": "npx",
       "args": ["@adamik/signer-mcp-server"],
       "env": {
-        "UNSECURE_LOCAL_SEED": "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+        "SEED_PHRASE": "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
       }
     }
   }
